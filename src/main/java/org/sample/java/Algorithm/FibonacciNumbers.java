@@ -1,16 +1,19 @@
 package org.sample.java.Algorithm;
 
+import java.util.HashMap;
+import java.util.Map;
 public class FibonacciNumbers {
-    public static void main(String[] args) {
-        FibonacciNumbers fn = new FibonacciNumbers();
+    private Map<Integer, Long> dictionary;
 
-        for (int i = 1; i <= 55; i++) {
-            System.out.println("fib (" + i + ") = " + fn.fib(i));
-        }
 
+
+
+    public FibonacciNumbers() {
+        this.dictionary = new HashMap<>();
     }
 
-    private long fib(int n){
+
+    public long fib(int n){
         if (n == 0)
         {
             return 0;
@@ -21,6 +24,20 @@ public class FibonacciNumbers {
             return 1;
         }
 
-        return fib(n - 1) + fib(n - 2);
+        return memo(n - 1) + memo(n - 2);
     }
+
+    private long memo(int e){
+
+        Long value = dictionary.get(e);
+            if (value != null)
+            {
+                return value;
+            }
+
+            value = fib(e);
+            dictionary.put(Integer.valueOf(e), value);
+            return value;
+    }
+
 }
