@@ -1,7 +1,7 @@
 package org.sample.java.inheritance;
 
 import java.awt.*;
-public class Jeep {
+public class Jeep extends SportUtilityVehicle {
 
     private Color color;
     protected double gasMileage;
@@ -29,5 +29,10 @@ public class Jeep {
 
     public void setTowingCapacity(double towingCapacity) {
         this.towingCapacity = towingCapacity;
+    }
+
+
+    public int getNumberOfSeats() {
+        return numberOfSeats + 1;
     }
 }
